@@ -19,15 +19,15 @@ Rubynlash - Home
     <div class="statistics">
       <div class="stat">
         <h3>Total ore lucrate săptămâna aceasta</h3>
-        <p class="stat-value">40 ore</p>
+        <p class="stat-value">{{ total_hours }} ore</p>
       </div>
       <div class="stat">
         <h3>Total venit săptămânal</h3>
-        <p class="stat-value">1500 RON</p>
+        <p class="stat-value">{{ total_income }} RON</p>
       </div>
       <div class="stat">
         <h3>Număr de cliente săptămâna aceasta</h3>
-        <p class="stat-value" id="client-count">25</p>
+        <p class="stat-value" id="client-count">{{ client_count }}</p>
       </div>
     </div>
 
@@ -37,46 +37,30 @@ Rubynlash - Home
         <thead>
           <tr>
             <th>#</th>
-            <th>Ora</th> <!-- Noua coloană pentru ora programării -->
+            <th>Ora</th>
             <th>Data</th>
             <th>Numele Clientei</th>
             <th>Tip Serviciu</th>
             <th>Pret</th>
             <th>Durata</th>
             <th>Număr de Telefon</th>
+            <th>Email</th>
           </tr>
         </thead>
         <tbody>
+          {% for appointment in appointments %}
           <tr>
-            <td>1</td>
-            <td>09:00</td> <!-- Ora programării -->
-            <td>01.01.2024</td>
-            <td>Ionela Popescu</td>
-            <td>Extensii Gene Volum</td>
-            <td>250 RON</td>
-            <td>2h</td>
-            <td>0756123456</td>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ appointment.appointment_time }}</td>
+            <td>{{ appointment.appointment_date }}</td>
+            <td>{{ appointment.client_name }}</td>
+            <td>{{ appointment.service_type }}</td>
+            <td>{{ appointment.price }} RON</td>
+            <td>{{ appointment.duration }}</td>
+            <td>{{ appointment.phone_number }}</td>
+            <td>{{ appointment.email }}</td>
           </tr>
-          <tr>
-            <td>2</td>
-            <td>11:00</td> <!-- Ora programării -->
-            <td>02.01.2024</td>
-            <td>Maria Ionescu</td>
-            <td>Retuș Extensii Gene</td>
-            <td>150 RON</td>
-            <td>1h 30m</td>
-            <td>0723456789</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>14:00</td> <!-- Ora programării -->
-            <td>02.01.2024</td>
-            <td>Elena Popa</td>
-            <td>Extensii Gene Classic</td>
-            <td>200 RON</td>
-            <td>2h</td>
-            <td>0745123456</td>
-          </tr>
+          {% endfor %}
         </tbody>
       </table>
     </div>

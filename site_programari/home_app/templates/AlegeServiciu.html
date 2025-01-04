@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Rubynlash - Home
+{% endblock %}
+
+{% block extra_css %}
+<link href="{% static 'css/home.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container">
+  <h1>Alege serviciul dorit</h1>
+    {% for serviciu in servicii %}
+    <div class="serviciu">
+        <h2>{{ serviciu.nume }}</h2>
+        <p>{{ serviciu.descriere }}</p>
+        <p class="pret">Preț: {{ serviciu.pret }} RON</p>
+        <form method="POST" action="{% url 'confirma_serviciul' %}">
+            {% csrf_token %}
+            <input type="hidden" name="serviciu_id" value="{{ serviciu.id }}">
+            <button type="submit">Alege</button>
+        </form>
+    </div>
+    {% empty %}
+    <p>Momentan nu există servicii disponibile.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

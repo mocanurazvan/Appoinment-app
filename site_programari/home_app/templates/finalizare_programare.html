@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Rubynlash - Home
+{% endblock %}
+
+{% block extra_css %}
+<link href="{% static 'css/home.css' %}" rel="stylesheet">
+<link href="{% static 'css/Flatpickr-calendar.css' %}" rel="stylesheet">
+<!-- Include Flatpickr CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Serviciul dorit</h1>
+    <p><strong>{{ serviciu_selectat }}</strong></p>
+
+    <h2>Selectează o dată</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="data">Alege data:</label>
+        <input type="text" id="data" name="data" class="flatpickr" required>
+
+        <button type="submit">Afișează ore disponibile</button>
+    </form>
+
+    <h2>Ore disponibile</h2>
+    {% if ore_disponibile %}
+        {% for ora in ore_disponibile %}
+        <div class="disponibil">
+            <span>{{ ora }}</span>
+            <form method="POST" action="{% url 'confirma_programare' %}">
+                {% csrf_token %}
+                <input type="hidden" name="ora_selectata" value="{{ ora|time:"H:i" }}">
+                <button type="submit">Selectează</button>
+            </form>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>Nu există ore disponibile pentru data selectată.</p>
+    {% endif %}
+</div>
+
+<!-- Include jQuery dacă nu este deja inclus în proiect -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Include Flatpickr JS -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script>
+    $(document).ready(function () {
+        // Inițializează Flatpickr pe input-ul cu clasa "flatpickr"
+        flatpickr(".flatpickr", {
+            minDate: "today",  // Permite doar selecția de date din viitor
+            dateFormat: "Y-m-d",  // Formatul datei
+            locale: "ro",  // Setează limba în română
+            altInput: true,  // Afișează o variantă a datei în format mai citibil
+            altFormat: "j F Y",  // Formatul alternativ al datei
+            inline: true,  // Afișează calendarul direct în pagină, similar cu Google Calendar
+            mode: "single",  // Permite selecția unei singure date (similar cu Google Calendar)
+            showMonths: 1,  // Afișează 1 lună
+            disableMobile: true,  // Nu afișează versiunea mobilă
+            weekNumbers: true  // Opțional, poți adăuga numerele săptămânii
+        });
+    });
+</script>
+
+{% endblock %}

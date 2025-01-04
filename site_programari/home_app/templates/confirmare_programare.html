@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Rubynlash - Home
+{% endblock %}
+
+{% block extra_css %}
+<link href="{% static 'css/home.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container">
+   <h1>Programare Confirmată</h1>
+    <p>Serviciul selectat: <strong>{{ serviciu.nume }}</strong></p>
+    <p>Data: <strong>{{ data }}</strong></p>
+    <p>Ora: <strong>{{ ora|time:"H:i" }}</strong></p>
+    <button onclick="location.href='/'">Înapoi la pagina principală</button>
+</div>
+
+{% endblock %}

@@ -1,13 +1,22 @@
 # forms.py
 from django import forms
-from .models import Programare
+from .models import Clienta
 
-class ProgramareForm(forms.ModelForm):
+class ClientaForm(forms.ModelForm):
     class Meta:
-        model = Programare
-        fields = ['serviciu', 'data', 'ora', 'telefon']  # Include și câmpul pentru telefon
+        model = Clienta
+        fields = ['nume', 'email', 'telefon']
         widgets = {
-            'data': forms.DateInput(attrs={'type': 'date'}),
-            'ora': forms.TimeInput(attrs={'type': 'time'}),
-            'telefon': forms.TextInput(attrs={'type': 'tel', 'placeholder': 'Introduceti numărul de telefon'}),
+            'nume': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Numele complet'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
+            'telefon': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Numărul de telefon'}),
         }
+
+from django import forms
+from django.utils.timezone import now
+
+class DataProgramareForm(forms.Form):
+    data = forms.DateField(
+        widget=forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
+        label="Selectează data"
+    )
