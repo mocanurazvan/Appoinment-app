@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Rubynlash - Home
+{% endblock %}
+
+{% block extra_css %}
+<link href="{% static 'css/home.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <header class="slider-section">
+        <div class="slider-container">
+            <div class="slider-content">
+                <h1>Bun venit la Rubynlash!</h1>
+                <p>Descoperă servicii profesionale de extensii de gene.</p>
+                <div class="slider-buttons">
+                    <a href="{% url 'about' %}" class="btn btn-primary">Despre Mine</a>
+                    <a href="/programeaza" class="btn btn-secondary">Programează</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="about-me">
+        <div class="left">
+            <img src="{% static 'images/img1.jpg' %}" alt="Mădălina Corciova" class="profile-img">
+        </div>
+        <div class="right">
+            <h2>Povestea mea</h2>
+            <p>Sunt Mădălina Corciova și lucrez în domeniul aplicării extensiilor de gene de 5 ani. De-a lungul
+                timpului, am învățat și am crescut în acest domeniu, perfecționându-mi tehnicile pentru a oferi fiecărei
+                cliente o experiență unică. Sunt pasionată de frumusețea și încrederea pe care extensiile de gene le pot
+                adăuga unei persoane, iar fiecare lucrare este o oportunitate de a aduce mai multă lumină și încredere
+                în viața celor din jurul meu.</p>
+        </div>
+
+    </section>
+    <section class="pricing-section">
+        <div class="pricing-container">
+            <h2 class="section-title">Lista Serviciilor</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Extensii Clasic</h3>
+                    <p>Durată: 1h 30m</p>
+                    <p class="price">150 RON</p>
+                </div>
+                <div class="pricing-card">
+                    <h3>Extensii Volum 2D</h3>
+                    <p>Durată: 2h</p>
+                    <p class="price">200 RON</p>
+                </div>
+                <div class="pricing-card">
+                    <h3>Extensii Volum 3D</h3>
+                    <p>Durată: 2h 30m</p>
+                    <p class="price">250 RON</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="works-section">
+        <div class="works-container">
+            <h2 class="section-title">Lucrările Mele</h2>
+            <div class="works-grid">
+                <div class="work-item">
+                    <div class="placeholder">800x600</div>
+                    <p>Descriere lucrare 1</p>
+                </div>
+                <div class="work-item">
+                    <div class="placeholder">800x600</div>
+                    <p>Descriere lucrare 2</p>
+                </div>
+                <div class="work-item">
+                    <div class="placeholder">800x600</div>
+                    <p>Descriere lucrare 3</p>
+                </div>
+                <div class="work-item">
+                    <div class="placeholder">800x600</div>
+                    <p>Descriere lucrare 4</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

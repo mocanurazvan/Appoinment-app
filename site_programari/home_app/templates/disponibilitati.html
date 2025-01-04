@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Rubynlash - Home
+{% endblock %}
+
+{% block extra_css %}
+<link href="{% static 'css/disponibilitate.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disponibilități</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<div class="container">
+    <h1 class="title">Alege când te programezi</h1>
+    <div class="navigation">
+        <button onclick="navigareSaptamana(-1)">Anterior</button>
+        <span id="saptamana">13-19 Ian</span>
+        <button onclick="navigareSaptamana(1)">Următor</button>
+    </div>
+
+    <div class="calendar">
+        {% for zi in programari|dictsort:"data" %}
+        <div class="day">
+            <a href="?zi={{ zi.data }}">{{ zi.data }}</a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="schedule">
+        <h2>Ore disponibile</h2>
+        <table>
+            {% for programare in programari %}
+            <tr>
+                <td>{{ programare.ora }}</td>
+                <td>
+                    {% if not programare.client %}
+                    <button class="plus-button">+</button>
+                    {% else %}
+                    Rezervat
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    function navigareSaptamana(directie) {
+    let saptamana = document.getElementById('saptamana').innerText;
+    // Logică pentru schimbarea săptămânii (poți folosi API-ul backend pentru acest lucru)
+}
+
+</script>
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Rubynlash - Home
+{% endblock %}
+
+{% block extra_css %}
+<link href="{% static 'css/disponibilitate.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alege Ora Programării</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Alege când te programezi</h1>
+        <div class="navigation">
+            <button class="nav-button">Anterior</button>
+            <span class="week">13-19 Ian</span>
+            <button class="nav-button">Următor</button>
+        </div>
+
+        <div class="calendar">
+            <div class="day">Lu.<br><span>13</span></div>
+            <div class="day active">Ma.<br><span>14</span></div>
+            <div class="day">Mi.<br><span>15</span></div>
+            <div class="day">Jo.<br><span>16</span></div>
+            <div class="day">Vi.<br><span>17</span></div>
+            <div class="day">Sa.<br><span>18</span></div>
+            <div class="day">Du.<br><span>19</span></div>
+        </div>
+
+        <div class="schedule">
+            <h2>Ore disponibile</h2>
+            <table>
+                <tr>
+                    <td>09:00</td>
+                    <td><button class="plus-button">+</button></td>
+                </tr>
+                <tr>
+                    <td>10:00</td>
+                    <td><button class="plus-button">+</button></td>
+                </tr>
+                <tr>
+                    <td>11:00</td>
+                    <td><button class="plus-button">+</button></td>
+                </tr>
+                <tr>
+                    <td>12:00</td>
+                    <td><button class="plus-button">+</button></td>
+                </tr>
+                <tr>
+                    <td>13:00</td>
+                    <td><button class="plus-button">+</button></td>
+                </tr>
+                <tr>
+                    <td>14:00</td>
+                    <td><button class="plus-button">+</button></td>
+                </tr>
+                <tr>
+                    <td>15:00</td>
+                    <td><button class="plus-button">+</button></td>
+                </tr>
+                <tr>
+                    <td>16:00</td>
+                    <td><button class="plus-button">+</button></td>
+                </tr>
+                <tr>
+                    <td>17:00</td>
+                    <td><button class="plus-button">+</button></td>
+                </tr>
+                <tr>
+                    <td>18:00</td>
+                    <td><button class="plus-button">+</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+
+
+{% endblock %}

@@ -1,0 +1,73 @@
+.dashboard {
+  background-color: #f0f4f8;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header h1 {
+  text-align: center;
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.statistics {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.stat {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 48%;
+}
+
+.stat h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.stat-value {
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
+}
+
+.appointments h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+table th,
+table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+table th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+table tr:hover {
+  background-color: #f1f1f1;
+}

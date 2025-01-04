@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Rubynlash - Home
+{% endblock %}
+
+{% block extra_css %}
+<link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<section class="dashboard">
+  <div class="container">
+    <div class="header">
+      <h1>Dashboard - Programări și Statistici</h1>
+    </div>
+
+    <div class="statistics">
+      <div class="stat">
+        <h3>Total ore lucrate săptămâna aceasta</h3>
+        <p class="stat-value">40 ore</p>
+      </div>
+      <div class="stat">
+        <h3>Total venit săptămânal</h3>
+        <p class="stat-value">1500 RON</p>
+      </div>
+      <div class="stat">
+        <h3>Număr de cliente săptămâna aceasta</h3>
+        <p class="stat-value" id="client-count">25</p>
+      </div>
+    </div>
+
+    <div class="appointments">
+      <h2>Programările din această săptămână</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Ora</th> <!-- Noua coloană pentru ora programării -->
+            <th>Data</th>
+            <th>Numele Clientei</th>
+            <th>Tip Serviciu</th>
+            <th>Pret</th>
+            <th>Durata</th>
+            <th>Număr de Telefon</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>09:00</td> <!-- Ora programării -->
+            <td>01.01.2024</td>
+            <td>Ionela Popescu</td>
+            <td>Extensii Gene Volum</td>
+            <td>250 RON</td>
+            <td>2h</td>
+            <td>0756123456</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>11:00</td> <!-- Ora programării -->
+            <td>02.01.2024</td>
+            <td>Maria Ionescu</td>
+            <td>Retuș Extensii Gene</td>
+            <td>150 RON</td>
+            <td>1h 30m</td>
+            <td>0723456789</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>14:00</td> <!-- Ora programării -->
+            <td>02.01.2024</td>
+            <td>Elena Popa</td>
+            <td>Extensii Gene Classic</td>
+            <td>200 RON</td>
+            <td>2h</td>
+            <td>0745123456</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<script>
+    window.onload = function () {
+        const rows = document.querySelectorAll('table tbody tr');
+        rows.forEach((row, index) => {
+            row.cells[0].textContent = index + 1; // Setează numărul programării în prima celulă
+        });
+    };
+</script>
+{% endblock %}
